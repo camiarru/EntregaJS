@@ -42,7 +42,7 @@ function inicio (){
    }
 }
 
-//inicio();
+inicio();
 
 // Cuando finaliza una partida, cada jugador suma sus puntos (se va hacer de manera automatica en un futuro)
 let puntosGanados = prompt("Cuantos puntos sumo en la partida?");
