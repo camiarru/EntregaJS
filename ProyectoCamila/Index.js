@@ -74,4 +74,25 @@ function inicio (){
 }
 
 
+function listarPuntajes() {
+   
+   let contenedor = document.getElementById("contenedor");
+
+   for (const jugador of arrayJugadores) {
+      let divInfoJugador = document.createElement("div");
+
+      divInfoJugador.innerHTML = `
+      <h2>${(jugador.apodo)} ........ ${jugador.puntos}</h2>`;
+
+      console.log(divInfoJugador.innerHTML);
+      console.log(divInfoJugador);
+
+      contenedor.append(divInfoJugador);
+
+   }
+
+}
+
+
 inicio();
+listarPuntajes();
