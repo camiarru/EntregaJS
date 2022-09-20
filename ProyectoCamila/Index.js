@@ -3,9 +3,9 @@
 
 let id;
 let nombre;
-let apodo;
+let usuario;
 let mail;
-let edad;
+let contraseña;
 let puntos;
 const arrayJugadores = [];
 
@@ -17,12 +17,12 @@ function sumarPuntos(puntajeJugador, puntosGanados) {
 
 // constructor de Jugadores
 class Jugador{
-   constructor (id, nombre, apodo, mail, edad, puntos){
+   constructor (id, nombre, usuario, mail, contraseña, puntos){
        this.id = id;
        this.nombre = nombre;
-       this.apodo = apodo;
+       this.usuario = usuario;
        this.mail = mail;
-       this.edad = edad;
+       this.contraseña = contraseña;
        this.puntos = puntos;
    }
 }
@@ -30,10 +30,10 @@ class Jugador{
 //Registro de datos de jugador
 function registroJugador() {
    let numArray;
-   nombre = prompt("Nombre:");
-   apodo = prompt ("Como quisiera ser llamadx?");
-   mail = prompt("Mail");
-   edad = parseInt(prompt ("Edad"));
+   nombre = document.getElementById("nombreRegistro");
+   usuario = document.getElementById("usuarioRegistro");
+   mail = document.getElementById("mailRegistro");
+   edad = document.getElementById("contraseñaRegistro");
    alert (`Bienvenidx ${apodo}! Su registro se ha completado con exito!`);
    
    console.log(nombre);
@@ -93,6 +93,18 @@ function listarPuntajes() {
 
 }
 
+function abrirRegistro(){
+   document.getElementById("form_registro").style.display="block";
+}
 
-inicio();
+
+function cerrarRegistro(){
+   document.getElementById("form_registro").style.display="none";
+}
+
+// ARRANCA CONEXION CON HTML>>>>
+
+
+
+// inicio();
 listarPuntajes();
