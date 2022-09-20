@@ -5,13 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=
     , initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Juegos Camila</title>
 </head>
 <body>
 
-  <div id="contenedor"> 
+   <!--<div id="contenedor"> 
     <h1>TABLA DE PUNTAJES</h1>
-  </div> 
+  </div>  -->
+
+  <header>
+    <nav>
+        <ul class="nav_ul">
+            <li class="nav_li"> <a href="index.html"> <img class="logo_img" src="Imagenes/GameIcon.png" alt=""></a></li>
+            <li><a class="nav_li-a" href="index.html">Inicio</a></li>
+            <li><a class="nav_li-a" href="javascript:abrirRegistro()">Registro</a></li>
+        </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- <a href="javascript:abrirRegistro()"><h1>Registro</h1></a> -->
+
+    <form class="form_registro" id="form_registro">
+      <div class="div_cerrar">
+        <a href="javascript:cerrarRegistro()"><img src="imagenes/Cerrar.png" alt="cerrar" class="btn_cerrar"></a>
+      </div>
+      <h1 class="h1_registro">Crear usuario</h1>
+      <input class = "input_registro" type="text" id="nombreRegistro" placeholder="Nombre">
+      <input class = "input_registro" type="text" id="usuarioRegistro" placeholder="Usuario">
+      <input class = "input_registro" type="text" id="emailRegistro" placeholder="Email">
+      <input class = "input_registro" type="password" id="contraseñaRegistro" placeholder="Contraseña">
+      <button class="btn_ok">Crear</button>
+    </form>
+
+  </main>
 
   <script src="./index.js"></script>
 </body>
