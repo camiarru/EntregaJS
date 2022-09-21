@@ -7,7 +7,6 @@ let nombre;
 let usuario;
 let mail;
 let contraseña;
-let puntos;
 const arrayJugadores = [];
 
 
@@ -119,36 +118,72 @@ btnOk.addEventListener("click", ()=> {
    listarPuntajes();
 });
 
-function mayorMenor() {
+function abrirMayorMenor(){
+   document.getElementById("juego_mayorMenor").style.display="block";
+}
 
-document.getElementById("numeroRandom").value = `numRandom>>> ${numRandom}`;
+function cerrarMayorMenor(){
+   document.getElementById("juego_mayorMenor").style.display="none";
+}
 
-let numRandom = random(1,10);
+
 let puntosMayorMenor = 0;
-let numeroGanador = random(1,10);
+let h1NumeroRandom = document.getElementById("numeroRandom");
+let numeroRandom = random(1,10);
+h1NumeroRandom.innerHTML = numeroRandom;
+let numeroComparado = random(1,10);
+console.log(`Num random es ${numeroRandom}`);
+console.log(`Nuevo num comparado es ${numeroComparado}`);
+if (numeroComparado == numeroRandom){
+   numeroComparado = random(1,10);
+}
+console.log(`Los puntos hasta el momento son ${puntosMayorMenor}`);
 
- console.log(`numRandom ${numRandom}`);
- console.log(`numganador ${numeroGanador}`);
- console.log(`puntos ${puntosMayorMenor}`);
+// BTN MENOR
+btnMenor = document.getElementById("menor");
+btnMenor.addEventListener("click", ()=> {
+   if (numeroComparado < numeroRandom){
+      //suma puntos
+      puntosMayorMenor++;
+      console.log(`Nuevo puntaje es ${puntosMayorMenor}`);
+
+      //cambia el numero que se muestra por el adivinado
+      numeroRandom = numeroComparado;
+      h1NumeroRandom.innerHTML = numeroComparado;
+      console.log(`Nuevo num random mostrado es ${numeroRandom}`);
+
+
+      //se genera un nuevo numero para comparar
+      numeroComparado = random(1,10);
+      console.log(`Nuevo num comparado es ${numeroComparado}`);
+
+   }
+   else{
+      alert(`FIN DEL JUEGO. Puntaje obtenido ${puntosMayorMenor}`);
+      }
+});
 
 btnMayor = document.getElementById("mayor");
 btnMayor.addEventListener("click", ()=> {
-   if (numRandom > numeroGanador){
-      puntos++;
+   if (numeroComparado > numeroRandom){
+      //suma puntos
+      puntosMayorMenor++;
+      console.log(`Nuevo puntaje es ${puntosMayorMenor}`);
+
+      //cambia el numero que se muestra por el adivinado
+      numeroRandom = numeroComparado;
+      h1NumeroRandom.innerHTML = numeroComparado;
+      console.log(`Nuevo num random mostrado es ${numeroRandom}`);
+
+
+      //se genera un nuevo numero para comparar
+      numeroComparado = random(1,10);
+      console.log(`Nuevo num comparado es ${numeroComparado}`);
+
    }
-   numRandom = random(1,10);
+   else{
+      alert(`FIN DEL JUEGO. Puntaje obtenido ${puntosMayorMenor}`);
+      }
 });
 
-btnMenor = document.getElementById("menor");
-btnMenor.addEventListener("click", ()=> {
-   if (numRandom < numeroGanador){
-      puntos++;
-   }
-   numRandom = random(1,10);
-});
 
-}
-
-mayorMenor();
-//inicio();
-// listarPuntajes();
