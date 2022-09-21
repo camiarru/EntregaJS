@@ -3,6 +3,8 @@ margin: 0;
 padding: 0;
 }
 
+
+
 /* navbar */
 
 .nav_ul{
@@ -35,12 +37,16 @@ padding: 0;
     height: 50px;
     overflow: hidden;
     margin-top: 4px;
-    margin-right: 490px;
+    margin-right: 470px;
 }
 
 body{
     background-color: #f2f2f2; 
     display: block;
+}
+
+main{
+    display: flex;
 }
 
 /* formulario registro */
@@ -103,19 +109,13 @@ body{
 .grid{
     padding-left: 20px;
     display: flex;
+    width: 100%;
     
-
-    /* display: grid;
-    grid-template-areas: 
-    "nav_ul nav_ul nav_ul"
-    "section_juegos section_puntos section_puntos"
-    "footer footer footer";
-     */
 }
 
 /* section juegos */
 .section_juegos{
-    width: 55%;
+    width: 60%;
     padding: 20px;
     border-radius: 8px;
     background-color: white;
@@ -224,4 +224,65 @@ body{
     font-size: 15px;
     margin-right: 8px;
     justify-content:flex-end
+}
+
+.juego_mayorMenor{
+    width: 70%;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    margin-left: 170px;
+    border-radius: 22px;
+    box-shadow: 3px 3px 40px -7px rgba(0,0,0,0.74);
+    display: none;
+    display: flex;
+    justify-content: center;
+}
+
+.div_numero-mayorMenor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.h1_titulo_juego{
+    padding: 5px;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+.h1_descripcion_juego{
+    padding: 5px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+.h1_numeroRandom{
+    margin-top: 30px;
+    padding: 5px;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+.div_btn_mayorMenor{
+    display: flex;
+    justify-content: space-around; 
+}
+
+.menor,.mayor{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    width: 30%;
+    height: 60px;
+    background-color: #7135F2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
