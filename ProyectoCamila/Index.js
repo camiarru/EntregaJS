@@ -1,6 +1,7 @@
 // Web de juegos
 // Funciones de posible uso en el proyecto final
 
+let i = 0;
 let id;
 let nombre;
 let usuario;
@@ -29,30 +30,33 @@ class Jugador{
 
 //Registro de datos de jugador
 function registroJugador() {
-   let numArray;
-   nombre = document.getElementById("nombreRegistro");
-   usuario = document.getElementById("usuarioRegistro");
-   mail = document.getElementById("mailRegistro");
-   edad = document.getElementById("contraseñaRegistro");
-   alert (`Bienvenidx ${apodo}! Su registro se ha completado con exito!`);
-   
+
+   nombre = document.getElementById("nombreRegistro").value;
+   usuario = document.getElementById("usuarioRegistro").value;
+   mail = document.getElementById("emailRegistro").value;
+   contraseña = document.getElementById("contraseñaRegistro").value;
+
    console.log(nombre);
-   console.log(apodo);
-   console.log(edad);
+   console.log(usuario);
    console.log(mail);
+   console.log(contraseña);
+
+
+   arrayJugadores.push(new Jugador (i, nombre, usuario, mail, contraseña, 0));
+   console.log(arrayJugadores[i]);
+
+   i++;
+   console.log(i);
+
 }
 
 //Validacion e inicio
 function inicio (){
 
-   cantJugadores = parseInt(prompt ("Bienvenidx! Cuantxs jugadorxs participaran del torneo?"));
-   if (cantJugadores > 0){
-         for (let i = 0; i < cantJugadores; i++) {
-         alert (`Jugador ${i+1}, ingrese sus datos`);
-         registroJugador();
+         
+         i++;
        
          //Indicamos que cada jugador cargado es un elemento en un array
-         arrayJugadores.push(new Jugador (i, nombre, apodo, mail, edad, 0));
          console.log(arrayJugadores[i]);
 
          for (const jugador of arrayJugadores){
@@ -66,28 +70,28 @@ function inicio (){
               // console.log(`El nombre del jugador ${i} es ${arrayJugadores[i].nombre}`);
             }
          }//fin for recorriendo array
-      }//fin for de validacion
-   } else{
-      alert ("Debe ingresar al menos un jugador!");
-      inicio();
-   }
+      
 }
 
 
 function listarPuntajes() {
    
-   let contenedor = document.getElementById("contenedor");
+   let contenedor = document.getElementById("section_puntos").innerHTML;
+   let arrayPuntajes = arrayJugadores;
+   
+   
+   console.log(`array jugadores ${arrayJugadores[0].nombre} ${arrayJugadores[0].nombre} >>> ${arrayJugadores[1].nombre}`);
+   
+   arrayPuntajes.sort();
+
+   console.log(`array Puntajes ${arrayPuntajes[0]} >>> ${arrayPuntajes[1]}`);
 
    for (const jugador of arrayJugadores) {
       let divInfoJugador = document.createElement("div");
 
       divInfoJugador.innerHTML = `
       <h2>${(jugador.apodo)} ........ ${jugador.puntos}</h2>`;
-
-      console.log(divInfoJugador.innerHTML);
-      console.log(divInfoJugador);
-
-      contenedor.append(divInfoJugador);
+   
 
    }
 
@@ -102,9 +106,49 @@ function cerrarRegistro(){
    document.getElementById("form_registro").style.display="none";
 }
 
+function random(min, max) {
+   return Math.floor((Math.random() * (max - min + 1)) + min);
+}
+
+
 // ARRANCA CONEXION CON HTML>>>>
 
+btnOk = document.getElementById("btn_ok");
+btnOk.addEventListener("click", ()=> {
+   registroJugador();  
+   listarPuntajes();
+});
 
+function mayorMenor() {
 
-// inicio();
-listarPuntajes();
+document.getElementById("numeroRandom").value = `numRandom>>> ${numRandom}`;
+
+let numRandom = random(1,10);
+let puntosMayorMenor = 0;
+let numeroGanador = random(1,10);
+
+ console.log(`numRandom ${numRandom}`);
+ console.log(`numganador ${numeroGanador}`);
+ console.log(`puntos ${puntosMayorMenor}`);
+
+btnMayor = document.getElementById("mayor");
+btnMayor.addEventListener("click", ()=> {
+   if (numRandom > numeroGanador){
+      puntos++;
+   }
+   numRandom = random(1,10);
+});
+
+btnMenor = document.getElementById("menor");
+btnMenor.addEventListener("click", ()=> {
+   if (numRandom < numeroGanador){
+      puntos++;
+   }
+   numRandom = random(1,10);
+});
+
+}
+
+mayorMenor();
+//inicio();
+// listarPuntajes();
