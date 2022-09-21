@@ -52,8 +52,8 @@
             <h1 class="h1_nombre-juego">Memotest</h1>
           </div>
           <div class="card_juego">
-            <a href=""><img src="Imagenes/memotest.png" alt="memotest" class="img_juego"></a>
-            <h1 class="h1_nombre-juego">Memotest</h1>
+            <a href="javascript:abrirMayorMenor()"><img src="Imagenes/MayorMenor.png" alt="memotest" class="img_juego"></a>
+            <h1 class="h1_nombre-juego">Mayor Menor</h1>
           </div>
           <div class="card_juego">
             <a href=""><img src="Imagenes/memotest.png" alt="memotest" class="img_juego"></a>
@@ -117,11 +117,16 @@
 
 
     <!--Mayor/menor-->
-      <div class="mayor_menor" id="mayorMenor">
-        <h1 id="numeroRandom">0</h1>
-        <input type="button" value="Menor" id="menor">
-        <input type="button" value="Mayor" id="mayor">
-
+      <div class="juego_mayorMenor" id="juego_mayorMenor">
+        <div class="div_numero-mayorMenor">
+          <h1 id="tituloJuego" class="h1_titulo_juego">Mayor Menor</h1>
+          <h1 id="descripcionJuego" class="h1_descripcion_juego">Adiviná si el número que sigue será mayor o menor al que ves en pantalla.</h1>
+          <h1 id="numeroRandom" class="h1_numeroRandom">0</h1>
+        </div>
+        <div class="div_btn_mayorMenor">
+          <input type="button" value="Mayor" id="mayor" class="mayor">
+          <input type="button" value="Menor" id="menor" class="menor">
+        </div>
       </div>
 
   </main>
