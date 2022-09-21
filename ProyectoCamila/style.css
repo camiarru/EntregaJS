@@ -3,22 +3,27 @@ margin: 0;
 padding: 0;
 }
 
+/* navbar */
+
 .nav_ul{
     display: flex;
     flex-direction: row;
     list-style-type: none;
     margin: 0;
+    margin-bottom: 25px;
     padding-right: 20px;
     overflow: hidden;
     background-color: #7135F2;
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     justify-content: flex-end;
+    box-shadow: 0px 0px 20px -7px rgba(0,0,0,0.74);
 }
 
 .nav_li-a{
     display: block;
     color: white;
+    font-weight: bold;
     text-align: center;
     padding: 18px;
     text-decoration: none;
@@ -35,7 +40,10 @@ padding: 0;
 
 body{
     background-color: #f2f2f2; 
+    display: block;
 }
+
+/* formulario registro */
 
 .form_registro{
     width: 30%;
@@ -44,8 +52,8 @@ body{
     background-color: white;
     position: absolute;
     margin-left: 32%;
-    margin-top: 5%;
     border-radius: 22px;
+    box-shadow: 3px 3px 40px -7px rgba(0,0,0,0.74);
     display: none;
 }
 
@@ -90,4 +98,130 @@ body{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.grid{
+    padding-left: 20px;
+    display: flex;
+    
+
+    /* display: grid;
+    grid-template-areas: 
+    "nav_ul nav_ul nav_ul"
+    "section_juegos section_puntos section_puntos"
+    "footer footer footer";
+     */
+}
+
+/* section juegos */
+.section_juegos{
+    width: 55%;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 0px 20px -7px rgba(0,0,0,0.74);
+
+}
+
+.div_h1-titulo{
+    display: flex;
+    justify-content: center;
+    /* height: 500px; */
+    background-color: #7135F2;
+    margin-bottom: 15px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px -7px rgba(0,0,0,0.74);
+
+}
+
+.h1_titulo-juegos{
+    margin-top: 4px;
+    padding-left: 8px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+.grid_juegos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    row-gap: 8px;
+    column-gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card_juego{
+    height: 150px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 10px 10px 7px -9px rgba(112,112,112,0.82);
+
+}
+
+.img_juego{
+    width: 100px;
+    height: 100px;
+    margin-top: 0;
+}
+
+.h1_nombre-juego{
+    margin-top: 4px;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+}
+
+/* section puntos */
+.section_puntos{
+    width: 36%;
+    height: 285px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 20px -7px rgba(0,0,0,0.74);
+    /* height: 300px;
+    width: 400px; */
+
+}
+
+.div_puntaje, .puntaje1{
+    display: flex;
+    flex-direction: row;
+    background-color: #9990ec;
+    border-radius: 5px;
+    height: 35px;
+    margin-top: 4px;
+    justify-content: space-between;
+
+}
+.puntaje1{
+    background-color: #aca6e6;
+}
+
+.h1_nombre-jugador{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 8px;
+    padding-top: 8px;
+    font-size: 15px;
+}
+
+.h1_puntaje-jugador{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 8px;
+    font-size: 15px;
+    margin-right: 8px;
+    justify-content:flex-end
 }
