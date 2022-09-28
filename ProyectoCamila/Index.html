@@ -17,7 +17,7 @@
     <nav>
         <ul class="nav_ul">
             <li class="nav_li"> <a href="index.html"> <img class="logo_img" src="Imagenes/GameIcon.png" alt=""></a></li>
-            <li><a class="nav_li-a" href="index.html">Inicio</a></li>
+            <li><a class="nav_li-a" href="javascript:abrirInicio()">Inicio</a></li>
             <li><a class="nav_li-a" href="javascript:abrirRegistro()">Registro</a></li>
         </ul>
     </nav>
@@ -39,6 +39,18 @@
       <input class = "input_registro" type="password" id="contraseñaRegistro" placeholder="Contraseña">
       <input class="btn_ok" id="btn_ok" type="button" value="Crear">
     </form>
+
+    <form class="form_registro" id="form_inicio">
+      <div class="div_cerrar">
+        <a href="javascript:cerrarInicio()"><img src="imagenes/Cerrar.png" alt="cerrar" class="btn_cerrar"></a>
+      </div>
+      <h1 class="h1_registro">Iniciar Sesion</h1>
+      <input class = "input_registro" type="text" id="usuarioRegistro" placeholder="Usuario">
+      <input class = "input_registro" type="password" id="contraseñaRegistro" placeholder="Contraseña">
+      <input class="btn_ok" id="btn_ok" type="button" value="Entrar">
+    </form>
+
+
 
     <div class="grid">
       <section class="section_juegos" id="section_juegos">
@@ -118,6 +130,9 @@
 
     <!--Mayor/menor-->
       <div class="juego_mayorMenor" id="juego_mayorMenor">
+        <div class="div_cerrar">
+          <a href="javascript:cerrarMayorMenor()"><img src="imagenes/Cerrar.png" alt="cerrar" class="btn_cerrar"></a>
+        </div>
         <div class="div_numero-mayorMenor">
           <h1 id="tituloJuego" class="h1_titulo_juego">Mayor Menor</h1>
           <h1 id="descripcionJuego" class="h1_descripcion_juego">Adiviná si el número que sigue será mayor o menor al que ves en pantalla.</h1>
@@ -126,6 +141,9 @@
         <div class="div_btn_mayorMenor">
           <input type="button" value="Mayor" id="mayor" class="mayor">
           <input type="button" value="Menor" id="menor" class="menor">
+        </div>
+        <div class="div_puntos">
+          <h1 id="puntos" class="h1_puntos">Puntos:</h1>
         </div>
       </div>
 
