@@ -118,8 +118,10 @@ btnOk.addEventListener("click", ()=> {
    listarPuntajes();
 });
 
+let puntosMayorMenor;
 function abrirMayorMenor(){
    document.getElementById("juego_mayorMenor").style.display="block";
+   puntosMayorMenor = 0;
 }
 
 function cerrarMayorMenor(){
@@ -127,7 +129,7 @@ function cerrarMayorMenor(){
 }
 
 
-let puntosMayorMenor = 0;
+
 let h1NumeroRandom = document.getElementById("numeroRandom");
 let numeroRandom = random(1,10);
 h1NumeroRandom.innerHTML = numeroRandom;
@@ -160,6 +162,7 @@ btnMenor.addEventListener("click", ()=> {
    }
    else{
       alert(`FIN DEL JUEGO. Puntaje obtenido ${puntosMayorMenor}`);
+      cerrarMayorMenor();
       }
 });
 
@@ -183,7 +186,17 @@ btnMayor.addEventListener("click", ()=> {
    }
    else{
       alert(`FIN DEL JUEGO. Puntaje obtenido ${puntosMayorMenor}`);
+      cerrarMayorMenor();
       }
 });
+
+function abrirInicio(){
+   document.getElementById("form_inicio").style.display="block";
+}
+
+
+function cerrarInicio(){
+   document.getElementById("form_inicio").style.display="none";
+}
 
 
