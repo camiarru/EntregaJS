@@ -15,10 +15,10 @@
 
   <header>
     <nav>
-        <ul class="nav_ul">
+        <ul class="nav_ul" id="nav_ul">
             <li class="nav_li"> <a href="index.html"> <img class="logo_img" src="Imagenes/GameIcon.png" alt=""></a></li>
-            <li><a class="nav_li-a" href="javascript:abrirInicio()">Inicio</a></li>
-            <li><a class="nav_li-a" href="javascript:abrirRegistro()">Registro</a></li>
+            <li><a id = "nav-inicio" class="nav_li-a" href="javascript:abrirInicio()">Inicio</a></li>
+            <li><a id = "nav-registro" class="nav_li-a" href="javascript:abrirRegistro()">Registro</a></li>
         </ul>
     </nav>
   </header>
@@ -45,9 +45,9 @@
         <a href="javascript:cerrarInicio()"><img src="imagenes/Cerrar.png" alt="cerrar" class="btn_cerrar"></a>
       </div>
       <h1 class="h1_registro">Iniciar Sesion</h1>
-      <input class = "input_registro" type="text" id="usuarioRegistro" placeholder="Usuario">
-      <input class = "input_registro" type="password" id="contraseñaRegistro" placeholder="Contraseña">
-      <input class="btn_ok" id="btn_ok" type="button" value="Entrar">
+      <input class = "input_registro" type="text" id="usuarioInicio" placeholder="Usuario">
+      <input class = "input_registro" type="password" id="contraseñaInicio" placeholder="Contraseña">
+      <input class="btn_ok" id="btn_entrar" type="button" value="Entrar">
     </form>
 
 
@@ -100,29 +100,10 @@
           <h1 class="h1_nombre-jugador">Tabla de posiciones</h1>
         </div>
         <div class="div_puntaje">
-          <h1 class="h1_nombre-jugador">Jugador</h1>
-          <h1 class="h1_puntaje-jugador">220</h1>
-        </div>
-        <div class="div_puntaje puntaje1">
-          <h1 class="h1_nombre-jugador">Jugador</h1>
+          <h1 class="h1_nombre-jugador">Nombre</h1>
           <h1 class="h1_puntaje-jugador">0</h1>
         </div>
-        <div class="div_puntaje">
-          <h1 class="h1_nombre-jugador">Jugador</h1>
-          <h1 class="h1_puntaje-jugador">0</h1>
-        </div>
-        <div class="div_puntaje puntaje1">
-          <h1 class="h1_nombre-jugador">Jugador</h1>
-          <h1 class="h1_puntaje-jugador">0</h1>
-        </div>
-        <div class="div_puntaje">
-          <h1 class="h1_nombre-jugador">Jugador</h1>
-          <h1 class="h1_puntaje-jugador">0</h1>
-        </div> 
-        <div class="div_puntaje puntaje1">
-          <h1 class="h1_nombre-jugador">Jugador</h1>
-          <h1 class="h1_puntaje-jugador">0</h1>
-        </div>      
+        
       </section> <!--Fin section JUEGOS-->
 
     </div> <!--Fin GRID-->
@@ -149,6 +130,7 @@
 
   </main>
 
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./index.js"></script>
 </body>
 </html>
