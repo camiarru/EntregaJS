@@ -8,6 +8,7 @@ let usuario;
 let mail;
 let contraseña;
 const arrayJugadores = [];
+let idUsuario;
 
 
 function sumarPuntos(puntajeJugador, puntosGanados) {
@@ -50,60 +51,111 @@ function registroJugador() {
 }
 
 //Validacion e inicio
-function inicio (){
+// function inicio (){
 
          
-         i++;
+//          i++;
        
-         //Indicamos que cada jugador cargado es un elemento en un array
-         console.log(arrayJugadores[i]);
+//          //Indicamos que cada jugador cargado es un elemento en un array
+//          console.log(arrayJugadores[i]);
 
-         for (const jugador of arrayJugadores){
-            if (jugador.id == i) {
-               let puntajeJugador = parseInt(arrayJugadores[i].puntos);
-               let puntosGanados = parseInt(prompt ("Ingese el puntaje obtenido"));
-               arrayJugadores[i].puntos = sumarPuntos(puntajeJugador, puntosGanados);
-               alert(`Su nuevo puntaje es ${arrayJugadores[i].puntos}`);
-               console.log(arrayJugadores[i].puntos);
-               //console.log (`este es el for const; ${jugador} =  en el casillero del array: ${i}`);
-              // console.log(`El nombre del jugador ${i} es ${arrayJugadores[i].nombre}`);
-            }
-         }//fin for recorriendo array
+//          for (const jugador of arrayJugadores){
+//             if (jugador.id == i) {
+//                let puntajeJugador = parseInt(arrayJugadores[i].puntos);
+//                let puntosGanados = parseInt(prompt ("Ingese el puntaje obtenido"));
+//                arrayJugadores[i].puntos = sumarPuntos(puntajeJugador, puntosGanados);
+//                alert(`Su nuevo puntaje es ${arrayJugadores[i].puntos}`);
+//                console.log(arrayJugadores[i].puntos);
+//                //console.log (`este es el for const; ${jugador} =  en el casillero del array: ${i}`);
+//               // console.log(`El nombre del jugador ${i} es ${arrayJugadores[i].nombre}`);
+//             }
+//          }//fin for recorriendo array
       
-}
+// }
 
 
-function listarPuntajes() {
+// function listarPuntajes() {
    
-   let contenedor = document.getElementById("section_puntos").innerHTML;
-   let arrayPuntajes = arrayJugadores;
+//    let contenedor = document.getElementById("section_puntos").innerHTML;
+//    let arrayPuntajes = arrayJugadores;
    
    
-   console.log(`array jugadores ${arrayJugadores[0].nombre} ${arrayJugadores[0].nombre} >>> ${arrayJugadores[1].nombre}`);
+//    console.log(`array jugadores ${arrayJugadores[0].nombre} ${arrayJugadores[0].nombre} >>> ${arrayJugadores[1].nombre}`);
    
-   arrayPuntajes.sort();
+//    arrayPuntajes.sort();
 
-   console.log(`array Puntajes ${arrayPuntajes[0]} >>> ${arrayPuntajes[1]}`);
+//    console.log(`array Puntajes ${arrayPuntajes[0]} >>> ${arrayPuntajes[1]}`);
 
-   for (const jugador of arrayJugadores) {
-      let divInfoJugador = document.createElement("div");
+//    for (const jugador of arrayJugadores) {
+//       let divInfoJugador = document.createElement("div");
 
-      divInfoJugador.innerHTML = `
-      <h2>${(jugador.apodo)} ........ ${jugador.puntos}</h2>`;
+//       divInfoJugador.innerHTML = `
+//       <h2>${(jugador.apodo)} ........ ${jugador.puntos}</h2>`;
    
 
-   }
+//    }
 
-}
+// }
 
 function abrirRegistro(){
    document.getElementById("form_registro").style.display="block";
+
+
 }
 
 
 function cerrarRegistro(){
    document.getElementById("form_registro").style.display="none";
 }
+
+//FUNCIONES BTN INICIO 
+
+function abrirInicio(){
+   document.getElementById("form_inicio").style.display="block";
+}
+
+
+function cerrarInicio(){
+   document.getElementById("form_inicio").style.display="none";
+}
+
+//Validar entrada usuario
+function validarInicio(usuarioIngresado, contraseñaIngresada) {
+   alert(`ENTRASTE A LA VALIDACION DE INICIO CAM ${usuarioIngresado, contraseñaIngresada}`);
+
+   const usuarioCorrecto = arrayJugadores.filter((e) => e.usuario == usuarioIngresado);
+   idUsuario = usuarioCorrecto[0].id;
+   console.log(idUsuario);
+   console.log(usuarioCorrecto[0].contraseña);
+
+   if (usuarioCorrecto[0].contraseña == contraseñaIngresada) {
+      alert(`BIENVENIDX ${usuarioCorrecto[0].nombre}`);
+   } else{
+      alert(`no entra`);
+   }
+
+
+   // for (const jugador of arrayJugadores){
+   //    alert(`jugador del const ${jugador.usuario} y la contrasea: ${jugador.contraseña}`);
+   //    alert(`jugador ingresado ${jugador.usuario} y la contrasea: ${jugador.contraseña}`);
+
+
+   // }//fin for recorriendo array
+
+}
+
+btnEntrar = document.getElementById("btn_entrar");
+btnEntrar.addEventListener("click", ()=> {
+   let usuarioIngresado = document.getElementById("usuarioInicio").value;
+   let contraseñaIngresada = document.getElementById("contraseñaInicio").value;
+   console.log(usuarioIngresado, contraseñaIngresada);
+
+   validarInicio(usuarioIngresado, contraseñaIngresada);
+   document.getElementById("form_registro").reset();
+
+});
+
+
 
 function random(min, max) {
    return Math.floor((Math.random() * (max - min + 1)) + min);
@@ -115,20 +167,44 @@ function random(min, max) {
 btnOk = document.getElementById("btn_ok");
 btnOk.addEventListener("click", ()=> {
    registroJugador();  
+   document.getElementById("form_registro").reset();
    listarPuntajes();
 });
+
+
+function alertJugarDeNuevo() {
+   Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+}
+
+
+let mostarPuntos = document.getElementById("puntos");
 
 let puntosMayorMenor;
 function abrirMayorMenor(){
    document.getElementById("juego_mayorMenor").style.display="block";
    puntosMayorMenor = 0;
+   mostarPuntos.innerHTML = puntosMayorMenor; 
 }
 
 function cerrarMayorMenor(){
    document.getElementById("juego_mayorMenor").style.display="none";
 }
-
-
 
 let h1NumeroRandom = document.getElementById("numeroRandom");
 let numeroRandom = random(1,10);
@@ -147,6 +223,7 @@ btnMenor.addEventListener("click", ()=> {
    if (numeroComparado < numeroRandom){
       //suma puntos
       puntosMayorMenor++;
+      mostarPuntos.innerText = puntosMayorMenor;
       console.log(`Nuevo puntaje es ${puntosMayorMenor}`);
 
       //cambia el numero que se muestra por el adivinado
@@ -161,7 +238,9 @@ btnMenor.addEventListener("click", ()=> {
 
    }
    else{
-      alert(`FIN DEL JUEGO. Puntaje obtenido ${puntosMayorMenor}`);
+      alert(`FIN DEL JUEGO. El numero que seguia era ${numeroComparado}. Puntaje obtenido ${puntosMayorMenor}`);
+      arrayJugadores[idUsuario].puntos = puntosMayorMenor;
+      console.log(arrayJugadores[idUsuario].puntos);
       cerrarMayorMenor();
       }
 });
@@ -171,6 +250,7 @@ btnMayor.addEventListener("click", ()=> {
    if (numeroComparado > numeroRandom){
       //suma puntos
       puntosMayorMenor++;
+      mostarPuntos.innerText = puntosMayorMenor;
       console.log(`Nuevo puntaje es ${puntosMayorMenor}`);
 
       //cambia el numero que se muestra por el adivinado
@@ -183,20 +263,10 @@ btnMayor.addEventListener("click", ()=> {
       numeroComparado = random(1,10);
       console.log(`Nuevo num comparado es ${numeroComparado}`);
 
-   }
-   else{
-      alert(`FIN DEL JUEGO. Puntaje obtenido ${puntosMayorMenor}`);
+    } else{
+      alert(`FIN DEL JUEGO. El numero que seguia era ${numeroComparado}. Puntaje obtenido ${puntosMayorMenor}`);
+      arrayJugadores[idUsuario].puntos = puntosMayorMenor;
+      console.log(arrayJugadores[idUsuario].puntos);
       cerrarMayorMenor();
       }
-});
-
-function abrirInicio(){
-   document.getElementById("form_inicio").style.display="block";
-}
-
-
-function cerrarInicio(){
-   document.getElementById("form_inicio").style.display="none";
-}
-
-
+ });
