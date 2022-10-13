@@ -270,3 +270,12 @@ btnMayor.addEventListener("click", ()=> {
        })
    }
  });
+
+ let imagenes = document.getElementById("imagenes")
+
+
+   fetch('https://random.dog/woof.json')
+   .then( respuesta => respuesta.json())
+   .then( datos => {
+         imagenes.innerHTML = `<img src="${datos.url}" class="tamaño_img"/>`
+   })
