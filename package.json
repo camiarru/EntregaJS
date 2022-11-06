@@ -1,0 +1,22 @@
+{
+  "name": "entregajs",
+  "version": "1.0.0",
+  "description": "//Hice funciones simulando la funcionalidad en un futuro de la pag",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camiarru/EntregaJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camiarru/EntregaJS/issues"
+  },
+  "homepage": "https://github.com/camiarru/EntregaJS#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
